@@ -25,7 +25,9 @@ executable liquid-haskell-textbook
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.
-    -- other-modules:
+    other-modules:
+        Chapter1
+        Chapter2
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
