@@ -1,6 +1,6 @@
 module Chapter2 where
 
-import Prelude hiding (map, length)
+import Prelude hiding (map, length, take)
 
 
 data List a = Nil | Cons a (List a)
@@ -32,3 +32,10 @@ interleave :: List a -> List a -> List a
 interleave Nil           ys  = ys
 interleave xs            Nil = xs
 interleave (x `Cons` xs) ys  = x `Cons` interleave ys xs
+
+{-@ take :: i : Nat -> List a -> { ys : List a | length ys <= i } @-}
+take :: Int -> List a -> List a
+take _ Nil         = Nil
+take 0 _           = Nil
+take i (Cons x xs) =
+  x `Cons` take (i - 1) xs
